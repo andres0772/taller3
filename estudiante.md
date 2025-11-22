@@ -1,21 +1,52 @@
 # Sistema de Gestión de Películas
 
-Este es un proyecto full-stack que implementa un sistema para administrar un catálogo de películas, usuarios y favoritos, incluyendo un dashboard con estadísticas.
+Este es un proyecto full-stack que implementa un sistema completo para administrar un catálogo de películas, usuarios y favoritos, incluyendo un dashboard interactivo con estadísticas en tiempo real.
 
-## Información
+## Información del Estudiante
 
 -   **Nombre:** Andres Esteban Vasquez Peña
--   **Materia:** Lenguaje de Programacion 3
--   **Actividad:** Taller 3
+-   **Materia:** Lenguajes de Programación 3
+-   **Proyecto:** Taller 2 + Taller 3
 
 ## Descripción del Proyecto
 
-El sistema es una aplicación web completa que permite realizar operaciones CRUD (Crear, Leer, Actualizar, Eliminar) sobre películas y usuarios.
+### Taller 2 - Backend (FastAPI)
+Se desarrolló la API REST completa utilizando **FastAPI** con los siguientes endpoints:
+- **Gestión de Películas**: Crear, leer, actualizar y eliminar películas del catálogo
+- **Gestión de Usuarios**: Registro y administración de usuarios con autenticación JWT
+- **Sistema de Favoritos**: Permite a los usuarios marcar películas como favoritas
+- **Estadísticas**: Endpoints para generar reportes y datos analíticos
+- **Base de Datos**: SQLite con SQLAlchemy ORM para persistencia de datos
+
+### Taller 3 - Frontend (React)
+Se construyó la interfaz de usuario completa que consume los endpoints del backend:
+- **Dashboard Principal**: Vista con estadísticas generales y gráficos interactivos
+- **Módulo de Usuarios**: CRUD completo para gestión de usuarios
+- **Catálogo de Películas**: Visualización, búsqueda, edición y eliminación de películas
+- **Sistema de Favoritos**: Interface para marcar y gestionar películas favoritas por usuario
+- **Estadísticas Avanzadas**: Gráficos con Recharts y exportación de datos (JSON/CSV)
 
 ### Tecnologías Utilizadas
 
--   **Backend:** Desarrollado con **Python** y el framework **FastAPI**. Se encarga de toda la lógica de negocio, la API REST y la comunicación con la base de datos.
--   **Frontend:** Construido con **React** y **TypeScript**, utilizando **Vite** como herramienta de desarrollo rápido y **TailwindCSS** para un diseño moderno y responsivo.
+#### Backend:
+- **Python 3.8+**: Lenguaje principal
+- **FastAPI**: Framework moderno para APIs
+- **SQLAlchemy**: ORM para base de datos
+- **SQLite**: Base de datos ligera
+- **Pydantic**: Validación de datos
+- **JWT**: Autenticación de usuarios
+- **Uvicorn**: Servidor ASGI
+
+#### Frontend:
+- **React 18**: Librería principal de UI
+- **TypeScript**: Tipado estático
+- **Vite**: Herramienta de desarrollo rápido
+- **TailwindCSS**: Framework de CSS para diseño moderno
+- **Zustand**: Manejo de estado global
+- **Recharts**: Librería para gráficos interactivos
+- **Framer Motion**: Animaciones suaves
+- **Axios**: Cliente HTTP para API calls
+- **Lucide React**: Iconos modernos
 
 ## Cómo Probar el Proyecto
 
@@ -49,14 +80,25 @@ El backend requiere un entorno virtual de Python para gestionar sus dependencias
     ```
 
 4.  **Configura las variables de entorno:**
-    Crea un archivo llamado `.env` en la raíz del directorio `practica/` y copia el siguiente contenido. Puedes cambiar la clave secreta si lo deseas.
+    Crea un archivo llamado `.env` en el directorio `backend/` copiando del `.env_example`:
 
+    ```bash
+    cp .env_example .env
+    ```
+    
+    El archivo `.env` contiene:
     ```env
-    # Archivo: taller3/.env
+    APP_NAME="Sistema de Películas"
+    APP_VERSION="1.0.0"
+    ENVIRONMENT="development"
+    HOST="0.0.0.0"
+    PORT=8000
+    RELOAD=true
+    LOG_LEVEL="INFO"
     
     DATABASE_URL="sqlite:///./peliculas.db"
     
-    SECRET_KEY="tu-clave-secreta-aqui"
+    SECRET_KEY="admin123"
     ALGORITHM="HS256"
     ACCESS_TOKEN_EXPIRE_MINUTES=30
     
@@ -92,4 +134,26 @@ Abre una **nueva terminal** para correr el frontend.
 4.  **Accede a la aplicación:**
     Abre tu navegador y visita **http://localhost:5173**.
 
-¡Y listo! Con ambos servidores corriendo, la aplicación será completamente funcional.
+## Flujo de Trabajo para Pruebas
+
+1. **Crear Usuarios**: Ingresa al módulo Usuarios y registra algunos usuarios de prueba
+2. **Agregar Películas**: En el módulo Películas, agrega películas al catálogo
+3. **Marcar Favoritos**: Selecciona un usuario y marca películas como favoritas
+4. **Ver Estadísticas**: Revisa el dashboard y los reportes generados automáticamente
+
+## Características Implementadas
+
+✅ CRUD completo para Usuarios y Películas  
+✅ Sistema de autenticación con JWT  
+✅ Gestión de favoritos por usuario  
+✅ Dashboard con estadísticas en tiempo real  
+✅ Gráficos interactivos con Recharts  
+✅ Modo oscuro/claro persistente  
+✅ Exportación de datos a JSON y CSV  
+✅ Animaciones suaves con Framer Motion  
+✅ Diseño 100% responsivo  
+✅ Validación de formularios  
+✅ Confirmación de eliminación  
+✅ Búsqueda y filtros avanzados  
+
+¡Y listo! Con ambos servidores corriendo, la aplicación será completamente funcional. Puedes acceder a la documentación de la API en http://127.0.0.1:8000/docs
